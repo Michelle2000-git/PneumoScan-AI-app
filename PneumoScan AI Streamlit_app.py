@@ -8,16 +8,14 @@ from tensorflow.keras.preprocessing import image
 from PIL import Image
 
 # File setup
-MODEL_PATH = "my_model.h5"
-FILE_ID = "122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
-MODEL_URL = f"https://drive.google.com/uc?id={FILE_ID}"
+MODEL_PATH = "model.h5"
+MODEL_ID = "122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
+MODEL_URL = f"https://drive.google.com/uc?export=download&id={MODEL_ID}"
 
-# Download model if not already present
 if not os.path.exists(MODEL_PATH):
-    with st.spinner("Downloading model..."):
-        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+    with st.spinner("Downloading model from Google Drive..."):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False, fuzzy=True)
 
-# Load the model
 model = load_model(MODEL_PATH)
 
 #Class names (index 0 = NORMAL, index 1 = PNEUMONIA)
