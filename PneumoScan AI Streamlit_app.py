@@ -6,13 +6,15 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
 
-MODEL_PATH = "my_model2.hdf5"
-MODEL_URL = "https://drive.google.com/uc?export=download&id=122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
+# File setup
+MODEL_PATH = "my_model.h5"
+FILE_ID = "122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
+MODEL_URL = f"https://drive.google.com/uc?id={FILE_ID}"
 
 # Download model if not already present
 if not os.path.exists(MODEL_PATH):
-    with st.spinner('Downloading model...'):
-        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+    with st.spinner("Downloading model..."):
+        gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
 
 # Load the model
 model = load_model(MODEL_PATH)
