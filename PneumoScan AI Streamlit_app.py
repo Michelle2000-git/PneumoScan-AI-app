@@ -24,7 +24,7 @@ class_names = ['NORMAL', 'PNEUMONIA']
 #Streamlit page setup
 st.set_page_config(page_title="Pneumonia Detection", layout="centered")
 st.title("""
-         Welcome to PneumoScan AI
+         Welcome to PaediaScan
          Your AI-Assisted X-ray Review for Paediatric Pneumonia
          """
          )
