@@ -3,10 +3,16 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
-import base64
 
-#Loading the trained CNN model
-MODEL_PATH = "/kaggle/input/mymodel/my_model2.hdf5"
+MODEL_PATH = "my_model.h5"
+MODEL_URL = "https://drive.google.com/uc?export=download&id=122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
+
+# Download model if not already present
+if not os.path.exists(MODEL_PATH):
+    with st.spinner('Downloading model...'):
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+
+# Load the model
 model = load_model(MODEL_PATH)
 
 #Class names (index 0 = NORMAL, index 1 = PNEUMONIA)
