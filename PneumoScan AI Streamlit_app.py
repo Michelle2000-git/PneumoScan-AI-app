@@ -4,7 +4,7 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing import image
 from PIL import Image
 
-MODEL_PATH = "my_model.h5"
+MODEL_PATH = "my_model2.hdf5"
 MODEL_URL = "https://drive.google.com/uc?export=download&id=122wvaD-tM23HNit-oQMsGRfQpuTfB1Dk"
 
 # Download model if not already present
